@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { Metadata } from "next";
 import allPoliticiansData from "@/data/politicians.json";
 import partiesData from "@/data/parties.json";
 import { Politician, Party } from "@/types";
+import PoliticianDirectoryCard from "@/components/PoliticianDirectoryCard";
 
 export const metadata: Metadata = {
   title: "Politicians — MY Tier",
@@ -57,48 +57,13 @@ export default function PoliticiansPage() {
               <span className="text-gray-500 font-normal text-sm ml-2">({pols.length})</span>
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {pols.map((p) => {
-                const party = partiesMap[p.party];
-                return (
-                  <a
-                    key={p.id}
-                    href={p.wikiUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center text-center gap-2 bg-white/5 rounded-xl p-4 hover:bg-white/10 transition-colors group"
-                  >
-                    <div
-                      className="w-16 h-16 rounded-full overflow-hidden border-2"
-                      style={{ borderColor: party?.color ?? "#555" }}
-                    >
-                      <Image
-                        src={p.photoUrl}
-                        alt={p.name}
-                        width={64}
-                        height={64}
-                        className="object-cover w-full h-full"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = "/politicians/placeholder.svg";
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-white group-hover:text-yellow-300 transition-colors leading-tight">
-                        {p.name}
-                      </p>
-                      <p className="text-xs text-gray-400 mt-0.5">{p.role}</p>
-                      {party && (
-                        <span
-                          className="inline-block text-[10px] font-bold px-1.5 rounded mt-1"
-                          style={{ backgroundColor: party.color, color: party.textColor }}
-                        >
-                          {party.shortName}
-                        </span>
-                      )}
-                    </div>
-                  </a>
-                );
-              })}
+              {pols.map((p) => (
+                <PoliticianDirectoryCard
+                  key={p.id}
+                  politician={p}
+                  party={partiesMap[p.party]}
+                />
+              ))}
             </div>
           </section>
         );
