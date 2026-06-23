@@ -1,0 +1,232 @@
+[
+  {
+    "id": "anwar-ibrahim",
+    "name": "Anwar Ibrahim",
+    "party": "PKR",
+    "coalition": "PH",
+    "role": "Prime Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/anwar-ibrahim.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Anwar_Ibrahim"
+  },
+  {
+    "id": "rafizi-ramli",
+    "name": "Rafizi Ramli",
+    "party": "PKR",
+    "coalition": "PH",
+    "role": "Economy Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/rafizi-ramli.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Rafizi_Ramli"
+  },
+  {
+    "id": "nurul-izzah",
+    "name": "Nurul Izzah Anwar",
+    "party": "PKR",
+    "coalition": "PH",
+    "role": "MP for Permatang Pauh",
+    "state": "Penang",
+    "photoUrl": "/politicians/nurul-izzah.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Nurul_Izzah_Anwar"
+  },
+  {
+    "id": "lim-guan-eng",
+    "name": "Lim Guan Eng",
+    "party": "DAP",
+    "coalition": "PH",
+    "role": "DAP Sec-Gen / Former Finance Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/lim-guan-eng.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Lim_Guan_Eng"
+  },
+  {
+    "id": "anthony-loke",
+    "name": "Anthony Loke",
+    "party": "DAP",
+    "coalition": "PH",
+    "role": "Transport Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/anthony-loke.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Anthony_Loke"
+  },
+  {
+    "id": "hannah-yeoh",
+    "name": "Hannah Yeoh",
+    "party": "DAP",
+    "coalition": "PH",
+    "role": "Youth & Sports Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/hannah-yeoh.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Hannah_Yeoh"
+  },
+  {
+    "id": "ahmad-zahid-hamidi",
+    "name": "Ahmad Zahid Hamidi",
+    "party": "UMNO",
+    "coalition": "BN",
+    "role": "Deputy Prime Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/ahmad-zahid-hamidi.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ahmad_Zahid_Hamidi"
+  },
+  {
+    "id": "najib-razak",
+    "name": "Najib Razak",
+    "party": "UMNO",
+    "coalition": "BN",
+    "role": "Former PM (Incarcerated)",
+    "state": "Federal",
+    "photoUrl": "/politicians/najib-razak.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Najib_Razak"
+  },
+  {
+    "id": "hishammuddin-hussein",
+    "name": "Hishammuddin Hussein",
+    "party": "UMNO",
+    "coalition": "BN",
+    "role": "MP for Sembrong",
+    "state": "Johor",
+    "photoUrl": "/politicians/hishammuddin-hussein.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Hishammuddin_Hussein"
+  },
+  {
+    "id": "ismail-sabri",
+    "name": "Ismail Sabri Yaakob",
+    "party": "UMNO",
+    "coalition": "BN",
+    "role": "Former Prime Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/ismail-sabri.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ismail_Sabri_Yaakob"
+  },
+  {
+    "id": "wee-ka-siong",
+    "name": "Wee Ka Siong",
+    "party": "MCA",
+    "coalition": "BN",
+    "role": "MCA President / Former Minister",
+    "state": "Federal",
+    "photoUrl": "/politicians/wee-ka-siong.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Wee_Ka_Siong"
+  },
+  {
+    "id": "muhyiddin-yassin",
+    "name": "Muhyiddin Yassin",
+    "party": "BERSATU",
+    "coalition": "PN",
+    "role": "PN Chairman / Former PM",
+    "state": "Federal",
+    "photoUrl": "/politicians/muhyiddin-yassin.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Muhyiddin_Yassin"
+  },
+  {
+    "id": "abdul-hadi-awang",
+    "name": "Abdul Hadi Awang",
+    "party": "PAS",
+    "coalition": "PN",
+    "role": "PAS President",
+    "state": "Federal",
+    "photoUrl": "/politicians/abdul-hadi-awang.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Abdul_Hadi_Awang"
+  },
+  {
+    "id": "sanusi-md-nor",
+    "name": "Sanusi Md Nor",
+    "party": "PAS",
+    "coalition": "PN",
+    "role": "Kedah Menteri Besar",
+    "state": "Kedah",
+    "photoUrl": "/politicians/sanusi-md-nor.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Muhammad_Sanusi_Md_Nor"
+  },
+  {
+    "id": "hamzah-zainudin",
+    "name": "Hamzah Zainudin",
+    "party": "BERSATU",
+    "coalition": "PN",
+    "role": "PN Secretary-General",
+    "state": "Federal",
+    "photoUrl": "/politicians/hamzah-zainudin.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Hamzah_Zainudin"
+  },
+  {
+    "id": "azmin-ali",
+    "name": "Azmin Ali",
+    "party": "BERSATU",
+    "coalition": "PN",
+    "role": "MP for Gombak",
+    "state": "Selangor",
+    "photoUrl": "/politicians/azmin-ali.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Azmin_Ali"
+  },
+  {
+    "id": "ahmad-samsuri",
+    "name": "Ahmad Samsuri Mokhtar",
+    "party": "PAS",
+    "coalition": "PN",
+    "role": "Terengganu Menteri Besar",
+    "state": "Terengganu",
+    "photoUrl": "/politicians/ahmad-samsuri.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Ahmad_Samsuri_Mokhtar"
+  },
+  {
+    "id": "abang-johari",
+    "name": "Abang Johari",
+    "party": "GPS",
+    "coalition": "GPS",
+    "role": "Sarawak Chief Minister",
+    "state": "Sarawak",
+    "photoUrl": "/politicians/abang-johari.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Abang_Johari_Openg"
+  },
+  {
+    "id": "fadillah-yusof",
+    "name": "Fadillah Yusof",
+    "party": "GPS",
+    "coalition": "GPS",
+    "role": "Deputy Prime Minister II",
+    "state": "Sarawak",
+    "photoUrl": "/politicians/fadillah-yusof.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Fadillah_Yusof"
+  },
+  {
+    "id": "hajiji-noor",
+    "name": "Hajiji Noor",
+    "party": "GRS",
+    "coalition": "GRS",
+    "role": "Sabah Chief Minister",
+    "state": "Sabah",
+    "photoUrl": "/politicians/hajiji-noor.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Hajiji_Noor"
+  },
+  {
+    "id": "syed-saddiq",
+    "name": "Syed Saddiq",
+    "party": "MUDA",
+    "coalition": "MUDA",
+    "role": "Muda President / MP for Muar",
+    "state": "Johor",
+    "photoUrl": "/politicians/syed-saddiq.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Syed_Saddiq"
+  },
+  {
+    "id": "mahathir-mohamad",
+    "name": "Mahathir Mohamad",
+    "party": "PEJUANG",
+    "coalition": "IND",
+    "role": "Former PM (x2)",
+    "state": "Federal",
+    "photoUrl": "/politicians/mahathir-mohamad.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Mahathir_Mohamad"
+  },
+  {
+    "id": "khairy-jamaluddin",
+    "name": "Khairy Jamaluddin",
+    "party": "IND",
+    "coalition": "IND",
+    "role": "MP for Rembau",
+    "state": "Negeri Sembilan",
+    "photoUrl": "/politicians/khairy-jamaluddin.jpg",
+    "wikiUrl": "https://en.wikipedia.org/wiki/Khairy_Jamaluddin"
+  }
+]

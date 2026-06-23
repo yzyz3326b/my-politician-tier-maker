@@ -1,0 +1,106 @@
+[
+  {
+    "id": "PKR",
+    "name": "Parti Keadilan Rakyat",
+    "shortName": "PKR",
+    "coalition": "PH",
+    "color": "#0066CC",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "DAP",
+    "name": "Democratic Action Party",
+    "shortName": "DAP",
+    "coalition": "PH",
+    "color": "#CC0000",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "AMANAH",
+    "name": "Parti Amanah Negara",
+    "shortName": "Amanah",
+    "coalition": "PH",
+    "color": "#008080",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "UMNO",
+    "name": "United Malays National Organisation",
+    "shortName": "UMNO",
+    "coalition": "BN",
+    "color": "#CC0000",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "MCA",
+    "name": "Malaysian Chinese Association",
+    "shortName": "MCA",
+    "coalition": "BN",
+    "color": "#003087",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "MIC",
+    "name": "Malaysian Indian Congress",
+    "shortName": "MIC",
+    "coalition": "BN",
+    "color": "#800020",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "BERSATU",
+    "name": "Parti Pribumi Bersatu Malaysia",
+    "shortName": "Bersatu",
+    "coalition": "PN",
+    "color": "#CC0000",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "PAS",
+    "name": "Parti Islam Se-Malaysia",
+    "shortName": "PAS",
+    "coalition": "PN",
+    "color": "#006600",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "GPS",
+    "name": "Gabungan Parti Sarawak",
+    "shortName": "GPS",
+    "coalition": "GPS",
+    "color": "#FF6600",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "GRS",
+    "name": "Gabungan Rakyat Sabah",
+    "shortName": "GRS",
+    "coalition": "GRS",
+    "color": "#CC6600",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "MUDA",
+    "name": "Parti Muda",
+    "shortName": "Muda",
+    "coalition": "MUDA",
+    "color": "#9900CC",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "PEJUANG",
+    "name": "Parti Pejuang Tanah Air",
+    "shortName": "Pejuang",
+    "coalition": "IND",
+    "color": "#006699",
+    "textColor": "#FFFFFF"
+  },
+  {
+    "id": "IND",
+    "name": "Independent",
+    "shortName": "Ind.",
+    "coalition": "IND",
+    "color": "#666666",
+    "textColor": "#FFFFFF"
+  }
+]
