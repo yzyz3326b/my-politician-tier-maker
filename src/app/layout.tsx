@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description:
     "Drag and drop Malaysian politicians into your own tier list. Who performs S-tier? Who belongs in F? You decide.",
   keywords: ["Malaysia", "politician", "tier list", "tier maker", "ranking", "politics"],
+  other: {
+    "google-adsense-account": ADSENSE_PUBLISHER_ID,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
