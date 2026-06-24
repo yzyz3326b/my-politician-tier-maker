@@ -14,9 +14,10 @@ interface Props {
   onRename: (tierId: string, newLabel: string) => void;
   onRemove: (tierId: string) => void;
   onRemovePolitician: (id: string) => void;
+  onTapPlace?: () => void;
 }
 
-export default function TierRow({ tier, politicianIds, allPoliticians, partiesMap, onRename, onRemove, onRemovePolitician }: Props) {
+export default function TierRow({ tier, politicianIds, allPoliticians, partiesMap, onRename, onRemove, onRemovePolitician, onTapPlace }: Props) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(tier.label);
   const { setNodeRef, isOver } = useDroppable({ id: tier.id });
@@ -71,7 +72,7 @@ export default function TierRow({ tier, politicianIds, allPoliticians, partiesMa
       </div>
 
       {/* Cards area */}
-      <div className="flex-1 p-2">
+      <div className="flex-1 p-2" onClick={onTapPlace}>
         <SortableContext items={rowPoliticians.map((p) => p.id)} strategy={horizontalListSortingStrategy}>
           <div className="flex flex-wrap gap-2 min-h-[80px] items-start content-start">
             {rowPoliticians.map((p) => (

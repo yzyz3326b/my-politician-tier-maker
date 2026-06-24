@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import {
   DndContext,
   DragOverlay,
@@ -55,6 +55,12 @@ export default function TierBoard() {
   const [search, setSearch] = useState("");
   const [copied, setCopied] = useState(false);
   const boardRef = useRef<HTMLDivElement>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
 
   // Upload new politician form state
   const [uploadName, setUploadName] = useState("");
@@ -62,7 +68,7 @@ export default function TierBoard() {
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
-    useSensor(TouchSensor, { activationConstraint: { delay: 250, tolerance: 8 } })
+    useSensor(TouchSensor, { activationConstraint: { distance: 5 } })
   );
 
   const findContainer = useCallback(
@@ -118,16 +124,76 @@ export default function TierBoard() {
   const handleSavePng = async () => {
     if (!boardRef.current) return;
     const { default: html2canvas } = await import("html2canvas");
-    const canvas = await html2canvas(boardRef.current, {
+
+    const source = await html2canvas(boardRef.current, {
       backgroundColor: "#111111",
       scale: 2,
       useCORS: true,
     });
+
+    // Build a 16:9 minimum canvas with padding + branding footer
+    const pad = 40;
+    const footerH = 52;
+    const totalW = source.width + pad * 2;
+    const contentH = source.height + pad + footerH;
+    const totalH = Math.max(contentH, Math.round(totalW * 9 / 16));
+
+    const out = document.createElement("canvas");
+    out.width = totalW;
+    out.height = totalH;
+    const ctx = out.getContext("2d")!;
+
+    ctx.fillStyle = "#0d0d0d";
+    ctx.fillRect(0, 0, totalW, totalH);
+
+    const yOff = Math.floor((totalH - contentH) / 2) + pad;
+    ctx.drawImage(source, pad, yOff);
+
+    const footerY = totalH - footerH;
+    ctx.fillStyle = "rgba(0,0,0,0.5)";
+    ctx.fillRect(0, footerY, totalW, footerH);
+    const fontSize = Math.max(18, Math.round(totalW * 0.022));
+    ctx.font = `bold ${fontSize}px Arial, sans-serif`;
+    ctx.fillStyle = "#f59e0b";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("politician-ranker.com", totalW / 2, footerY + footerH / 2);
+
+    const blob = await new Promise<Blob>((res) =>
+      out.toBlob((b) => res(b!), "image/png")
+    );
+
+    // On mobile use Web Share API so iOS can Save to Photos
+    const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobileDevice && "share" in navigator) {
+      try {
+        const file = new File([blob], "malaysia-tier-list.png", { type: "image/png" });
+        await navigator.share({ files: [file], title: "My Malaysian Politicians Tier List" });
+        return;
+      } catch {
+        // cancelled or unsupported — fall through to download
+      }
+    }
+
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.download = "malaysia-tier-list.png";
-    link.href = canvas.toDataURL("image/png");
+    link.href = url;
     link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
+
+  const handleCardTap = useCallback((id: string) => {
+    setSelectedId((prev) => (prev === id ? null : id));
+  }, []);
+
+  const handleRowTap = useCallback((tierId: string) => {
+    if (!selectedId) return;
+    const from = findContainer(selectedId);
+    if (!from || from === tierId) { setSelectedId(null); return; }
+    moveItem(selectedId, from, tierId, (items[tierId] ?? []).length);
+    setSelectedId(null);
+  }, [selectedId, findContainer, moveItem, items]);
 
   const handleUploadFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -183,6 +249,12 @@ export default function TierBoard() {
         </button>
       </div>
 
+      {isMobile && selectedId && (
+        <div className="sticky top-2 z-30 text-center text-sm bg-yellow-400 text-black font-semibold rounded-lg px-3 py-2 shadow-lg">
+          Tap any tier row to place · tap the card again to cancel
+        </div>
+      )}
+
       <DndContext
         sensors={sensors}
         collisionDetection={collisionDetection}
@@ -202,6 +274,7 @@ export default function TierBoard() {
               onRename={renameLabel}
               onRemove={removeTier}
               onRemovePolitician={removePolitician}
+              onTapPlace={isMobile ? () => handleRowTap(tier.id) : undefined}
             />
           ))}
         </div>
@@ -266,6 +339,8 @@ export default function TierBoard() {
             activeCoalition={coalition}
             searchQuery={search}
             onRemovePolitician={removePolitician}
+            selectedId={isMobile ? selectedId : null}
+            onCardTap={isMobile ? handleCardTap : undefined}
           />
         </div>
 

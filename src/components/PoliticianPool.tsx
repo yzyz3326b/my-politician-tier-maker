@@ -12,6 +12,8 @@ interface Props {
   activeCoalition: CoalitionKey | "ALL";
   searchQuery: string;
   onRemovePolitician: (id: string) => void;
+  selectedId?: string | null;
+  onCardTap?: (id: string) => void;
 }
 
 export default function PoliticianPool({
@@ -21,6 +23,8 @@ export default function PoliticianPool({
   activeCoalition,
   searchQuery,
   onRemovePolitician,
+  selectedId,
+  onCardTap,
 }: Props) {
   const { setNodeRef, isOver } = useDroppable({ id: POOL_ID });
 
@@ -54,6 +58,8 @@ export default function PoliticianPool({
                 politician={p}
                 party={partiesMap[p.party]}
                 onRemove={() => onRemovePolitician(p.id)}
+                isSelected={selectedId === p.id}
+                onTap={onCardTap ? () => onCardTap(p.id) : undefined}
               />
             ))}
           </div>

@@ -9,9 +9,11 @@ interface Props {
   party: Party | undefined;
   isDragOverlay?: boolean;
   onRemove?: () => void;
+  isSelected?: boolean;
+  onTap?: () => void;
 }
 
-export default function PoliticianCard({ politician, party, isDragOverlay, onRemove }: Props) {
+export default function PoliticianCard({ politician, party, isDragOverlay, onRemove, isSelected, onTap }: Props) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: politician.id,
   });
@@ -31,11 +33,12 @@ export default function PoliticianCard({ politician, party, isDragOverlay, onRem
       style={style}
       {...attributes}
       {...listeners}
+      onClick={onTap ? (e) => { e.stopPropagation(); onTap(); } : undefined}
       className="relative flex flex-col items-center w-[90px] shrink-0 select-none"
       title={`${politician.name} — ${politician.role}`}
     >
       <div
-        className="w-[80px] h-[80px] rounded overflow-hidden border-2"
+        className={`w-[80px] h-[80px] rounded overflow-hidden border-2 transition-all ${isSelected ? "ring-2 ring-yellow-400 ring-offset-2 ring-offset-black scale-105" : ""}`}
         style={{ borderColor }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
