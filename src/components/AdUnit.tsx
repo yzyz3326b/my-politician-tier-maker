@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 // Replace these with your real values after AdSense approval
-const PUBLISHER_ID = "ca-pub-XXXXXXXXXXXXXXXX";
+const PUBLISHER_ID = "ca-pub-7124926890944153";
 
 declare global {
   interface Window {

@@ -3,7 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 
 // Replace with your real Publisher ID after AdSense approval
-const ADSENSE_PUBLISHER_ID = "ca-pub-XXXXXXXXXXXXXXXX";
+const ADSENSE_PUBLISHER_ID = "ca-pub-7124926890944153";
 
 export const metadata: Metadata = {
   title: "MY Tier Maker — Rank Malaysian Politicians",
