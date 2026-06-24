@@ -22,6 +22,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
           crossOrigin="anonymous"
         />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BDC6LX9ZP" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2BDC6LX9ZP');
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen bg-[#0d0d0d] text-gray-100">
         <header className="border-b border-white/10 bg-[#111]">
