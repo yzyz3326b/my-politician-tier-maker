@@ -41,9 +41,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a href="/politicians" className="hover:text-white transition-colors">
                 Politicians
               </a>
-              <a href="/submit" className="hover:text-white transition-colors">
-                Submit
-              </a>
               <a href="/about" className="hover:text-white transition-colors">
                 About
               </a>
@@ -61,10 +58,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <p className="mt-1">
             <a href="/about" className="hover:text-gray-400">
               About
-            </a>
-            {" · "}
-            <a href="/submit" className="hover:text-gray-400">
-              Submit a Politician
             </a>
             {" · "}
             <a href="/privacy" className="hover:text-gray-400">

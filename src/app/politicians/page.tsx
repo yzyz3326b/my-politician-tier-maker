@@ -40,10 +40,11 @@ export default function PoliticiansPage() {
         <h1 className="text-2xl font-bold text-white">Politician Directory</h1>
         <p className="text-gray-400 text-sm mt-1">
           {allPoliticians.length} politicians across {COALITION_ORDER.length} coalitions/groups.
-          Missing someone?{" "}
-          <a href="/submit" className="underline text-yellow-400 hover:text-yellow-300">
-            Submit them here.
-          </a>
+          You can add custom politicians directly on the{" "}
+          <a href="/tiermaker" className="underline text-yellow-400 hover:text-yellow-300">
+            Tier Maker
+          </a>{" "}
+          page.
         </p>
       </div>
 

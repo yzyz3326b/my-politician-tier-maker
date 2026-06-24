@@ -43,21 +43,21 @@ export default function AboutPage() {
       <section className="space-y-3">
         <h2 className="text-lg font-semibold text-white">Photo Sources</h2>
         <p className="text-gray-400 leading-relaxed text-sm">
-          All politician photos are sourced from public domain or Creative Commons–licensed sources
-          including Wikipedia Commons, official party websites, and Bernama press releases. Photos
-          are stored locally and not hotlinked.
+          All politician photos are sourced from publicly available materials including official
+          press releases, public domain images, and Creative Commons–licensed sources. Photos are
+          stored locally and not hotlinked.
         </p>
       </section>
 
       <section className="space-y-3">
         <h2 className="text-lg font-semibold text-white">Add a Politician</h2>
         <p className="text-gray-400 text-sm">
-          Anyone can{" "}
-          <a href="/submit" className="text-yellow-400 underline hover:text-yellow-300">
-            submit a politician
+          You can add custom politicians directly on the{" "}
+          <a href="/tiermaker" className="text-yellow-400 underline hover:text-yellow-300">
+            Tier Maker
           </a>{" "}
-          to be added to the pool. Submissions are reviewed before going live to ensure quality and
-          accuracy.
+          page — upload a photo and enter a name to instantly add them to your pool. No submission
+          or approval needed.
         </p>
       </section>
 

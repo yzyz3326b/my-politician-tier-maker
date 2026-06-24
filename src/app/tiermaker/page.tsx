@@ -19,13 +19,6 @@ export default function TierMakerPage() {
       </div>
       <TierBoard />
       <AdUnit slot="SLOT_ID_TIERMAKER" className="my-2" />
-      <p className="text-xs text-gray-600 text-center">
-        Can&apos;t find someone?{" "}
-        <a href="/submit" className="underline hover:text-gray-400">
-          Submit a politician
-        </a>{" "}
-        and we&apos;ll review it.
-      </p>
     </div>
   );
 }
