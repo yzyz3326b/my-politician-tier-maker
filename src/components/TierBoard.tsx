@@ -125,18 +125,28 @@ export default function TierBoard() {
     if (!boardRef.current) return;
     const { default: html2canvas } = await import("html2canvas");
 
-    // Force a fixed 700px render width via onclone so the export is
-    // always consistent and cards are clearly visible regardless of
-    // the user's browser window size.
-    const source = await html2canvas(boardRef.current, {
+    const el = boardRef.current;
+
+    // Temporarily shrink to 700px so the browser re-flows the layout before
+    // capture. onclone alone doesn't trigger re-layout — we must resize the
+    // live element, wait two animation frames, then restore.
+    const savedWidth = el.style.width;
+    const savedMaxWidth = el.style.maxWidth;
+    el.style.width = "700px";
+    el.style.maxWidth = "700px";
+
+    await new Promise<void>((r) =>
+      requestAnimationFrame(() => requestAnimationFrame(() => r()))
+    );
+
+    const source = await html2canvas(el, {
       backgroundColor: "#111111",
       scale: 2,
       useCORS: true,
-      onclone: (_doc, el) => {
-        (el as HTMLElement).style.width = "700px";
-        (el as HTMLElement).style.maxWidth = "700px";
-      },
     });
+
+    el.style.width = savedWidth;
+    el.style.maxWidth = savedMaxWidth;
 
     // Add padding + branding footer — no forced ratio, let natural height win
     const pad = 32;
