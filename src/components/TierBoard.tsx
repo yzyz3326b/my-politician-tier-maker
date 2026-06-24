@@ -125,18 +125,24 @@ export default function TierBoard() {
     if (!boardRef.current) return;
     const { default: html2canvas } = await import("html2canvas");
 
+    // Force a fixed 700px render width via onclone so the export is
+    // always consistent and cards are clearly visible regardless of
+    // the user's browser window size.
     const source = await html2canvas(boardRef.current, {
       backgroundColor: "#111111",
       scale: 2,
       useCORS: true,
+      onclone: (_doc, el) => {
+        (el as HTMLElement).style.width = "700px";
+        (el as HTMLElement).style.maxWidth = "700px";
+      },
     });
 
-    // Build a 16:9 minimum canvas with padding + branding footer
-    const pad = 40;
-    const footerH = 52;
+    // Add padding + branding footer — no forced ratio, let natural height win
+    const pad = 32;
+    const footerH = 48;
     const totalW = source.width + pad * 2;
-    const contentH = source.height + pad + footerH;
-    const totalH = Math.max(contentH, Math.round(totalW * 9 / 16));
+    const totalH = source.height + pad * 2 + footerH;
 
     const out = document.createElement("canvas");
     out.width = totalW;
@@ -145,14 +151,12 @@ export default function TierBoard() {
 
     ctx.fillStyle = "#0d0d0d";
     ctx.fillRect(0, 0, totalW, totalH);
-
-    const yOff = Math.floor((totalH - contentH) / 2) + pad;
-    ctx.drawImage(source, pad, yOff);
+    ctx.drawImage(source, pad, pad);
 
     const footerY = totalH - footerH;
-    ctx.fillStyle = "rgba(0,0,0,0.5)";
+    ctx.fillStyle = "rgba(0,0,0,0.6)";
     ctx.fillRect(0, footerY, totalW, footerH);
-    const fontSize = Math.max(18, Math.round(totalW * 0.022));
+    const fontSize = Math.max(20, Math.round(totalW * 0.024));
     ctx.font = `bold ${fontSize}px Arial, sans-serif`;
     ctx.fillStyle = "#f59e0b";
     ctx.textAlign = "center";
