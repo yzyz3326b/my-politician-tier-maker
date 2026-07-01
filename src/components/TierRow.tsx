@@ -81,6 +81,7 @@ export default function TierRow({ tier, politicianIds, allPoliticians, partiesMa
                 politician={p}
                 party={partiesMap[p.party]}
                 onRemove={() => onRemovePolitician(p.id)}
+                showName={false}
               />
             ))}
           </div>

@@ -11,9 +11,10 @@ interface Props {
   onRemove?: () => void;
   isSelected?: boolean;
   onTap?: () => void;
+  showName?: boolean;
 }
 
-export default function PoliticianCard({ politician, party, isDragOverlay, onRemove, isSelected, onTap }: Props) {
+export default function PoliticianCard({ politician, party, isDragOverlay, onRemove, isSelected, onTap, showName = true }: Props) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: politician.id,
   });
@@ -26,6 +27,8 @@ export default function PoliticianCard({ politician, party, isDragOverlay, onRem
   };
 
   const borderColor = party?.color ?? "#555";
+  const imgSize = showName ? 80 : 96;
+  const outerW = showName ? "w-[90px]" : "w-[100px]";
 
   return (
     <div
@@ -34,19 +37,19 @@ export default function PoliticianCard({ politician, party, isDragOverlay, onRem
       {...attributes}
       {...listeners}
       onClick={onTap ? (e) => { e.stopPropagation(); onTap(); } : undefined}
-      className="relative flex flex-col items-center w-[90px] shrink-0 select-none"
+      className={`relative flex flex-col items-center ${outerW} shrink-0 select-none`}
       title={`${politician.name} — ${politician.role}`}
     >
       <div
-        className={`w-[80px] h-[80px] rounded overflow-hidden border-2 transition-all ${isSelected ? "ring-2 ring-yellow-400 ring-offset-2 ring-offset-black scale-105" : ""}`}
-        style={{ borderColor }}
+        className={`rounded overflow-hidden border-2 transition-all ${isSelected ? "ring-2 ring-yellow-400 ring-offset-2 ring-offset-black scale-105" : ""}`}
+        style={{ borderColor, width: imgSize, height: imgSize }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={politician.photoUrl}
           alt={politician.name}
-          width={80}
-          height={80}
+          width={imgSize}
+          height={imgSize}
           className="object-cover w-full h-full"
           draggable={false}
           onError={(e) => {
@@ -68,9 +71,11 @@ export default function PoliticianCard({ politician, party, isDragOverlay, onRem
         </button>
       )}
 
-      <span className="mt-1 text-[10px] text-center text-gray-200 leading-tight max-w-[88px] line-clamp-2">
-        {politician.name}
-      </span>
+      {showName && (
+        <span className="mt-1 text-[10px] text-center text-gray-200 leading-tight max-w-[88px] line-clamp-2">
+          {politician.name}
+        </span>
+      )}
     </div>
   );
 }
